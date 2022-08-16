@@ -13,7 +13,7 @@ function Header() {
     const [searchResult, setSearchResult] = useState([]) 
     useEffect(() => {
         setTimeout(() => {
-            setSearchResult([])
+            setSearchResult([1])
         }, 0)
     }, [])
     return (

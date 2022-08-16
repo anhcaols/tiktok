@@ -1,0 +1,88 @@
+
+.wrapper {
+    width: 100%;
+    height: var(--default-height);
+    box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
+    display: flex;
+    justify-content: center;
+}
+.inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: var(--default-container);
+    height: 100%;
+    padding: 0 24px 0 20px;
+}
+
+.search {
+    $search-border-radius: 92px;
+    $search-height: 46px;
+    $search-top-spacer: 9px;
+    position: relative;
+    width: 361px;
+    height: $search-height;
+    background-color: #f1f1f2;
+    display: flex;
+    border-radius: $search-border-radius;
+    border: 1.5px solid transparent;
+
+    &::after {
+        content: "";
+        position: absolute;
+        right: 52px;
+        top: $search-top-spacer;
+        width: 1px;
+        height: calc($search-height - $search-top-spacer * 2);
+        background-color: #1618231f;
+    }
+    &:focus-within {
+        border-color: #16182333;
+    }
+
+    input {
+        flex: 1;
+        line-height: 22px;
+        background-color: transparent;
+        font-size: 1.6rem;
+        caret-color: rgba(254, 44, 85, 1.0);
+        padding: 12px 0 12px 16px;
+    }
+    .clear, .loading {
+        position: absolute;
+        font-size: 1.6rem;
+        color: #16182357;
+        right: 64px;
+        top: 50%;
+        transform: translateY( -50%);
+    }
+    
+    .search-btn {
+        width: 52px;
+        height: 100%;
+        font-size: 2rem;
+        color: #16182357;;
+        border-top-right-radius: $search-border-radius;
+        border-bottom-right-radius: $search-border-radius;
+        &:hover {
+            background-color: #16182308;
+            cursor: pointer;
+        }
+        &:active {
+            background-color: rgba(22, 24, 35, 0.06);
+        }
+        
+    }
+}
+.search-result {
+    width: 361px;
+}
+.search-title {
+    padding-left: 12px;
+    color: rgba(22, 24, 35, 0.5);
+    height: 30px;
+    padding: 5px 12px;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 600;
+}

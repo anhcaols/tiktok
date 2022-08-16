@@ -1,0 +1,43 @@
+.wrapper {
+    display: flex;
+    padding: 9px 16px;
+
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03);
+        cursor: pointer;
+    }
+}
+.avatar {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 12px;
+}
+.info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.name {
+    font-size: 1.6rem;
+    line-height: 22px;
+    font-weight: 600;
+    color: rgba(22, 24, 35, 1.0);
+
+    span {
+        margin-right: 8px;
+    }
+
+    
+}
+.icon {
+    font-size: 1.4rem;
+    color: rgb(32, 213, 236);
+}
+.user-name {
+    font-size: 1.4rem;
+    line-height: 20px;
+    color: rgba(22, 24, 35, 0.5);
+    font-weight: 400;
+}

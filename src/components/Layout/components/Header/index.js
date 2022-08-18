@@ -5,12 +5,14 @@ import Tippy from '@tippyjs/react/headless'
 
 import styles from './Header.module.scss'
 import images from '~/components/assets/images'
-import { faCircleXmark, faMagnifyingGlass, faSpinner } from '@fortawesome/free-solid-svg-icons'
-import { Wrapper  as WrapperPopper} from '~/components/Popper'
+import { faCircleXmark, faMagnifyingGlass, faSignIn, faSpinner } from '@fortawesome/free-solid-svg-icons'
+import { Wrapper as WrapperPopper } from '~/components/Popper'
 import { AccountItem } from '~/components/AccountItem'
+import Button from '~/components/Button'
+
 const cx = classNames.bind(styles)
 function Header() {
-    const [searchResult, setSearchResult] = useState([]) 
+    const [searchResult, setSearchResult] = useState([])
     useEffect(() => {
         setTimeout(() => {
             setSearchResult([])
@@ -24,18 +26,19 @@ function Header() {
                 </div>
                 <Tippy
                     interactive
-                    visible = {searchResult.length > 0}
-                    render={(attrs) =>
-                        <div className={cx("search-result")} tabIndex = "-1" {...attrs}>
+                    visible={searchResult.length > 0}
+                    render={(attrs) => (
+                        <div className={cx('search-result')} tabIndex="-1" {...attrs}>
                             <WrapperPopper>
-                                <h4 className={cx("search-title")}>Accounts</h4>
+                                <h4 className={cx('search-title')}>Accounts</h4>
                                 <AccountItem />
                                 <AccountItem />
                                 <AccountItem />
                                 <AccountItem />
                             </WrapperPopper>
                         </div>
-                }>
+                    )}
+                >
                     <div className={cx('search')}>
                         <input placeholder="Search accounts and videos" spellCheck={false} />
                         <button className={cx('clear')}>
@@ -47,7 +50,18 @@ function Header() {
                         </button>
                     </div>
                 </Tippy>
-                <div className={cx('actions')}></div>
+                <div className={cx('actions')}>
+                    <Button rounded className={cx('custom-get-app')}>
+                        Disabled
+                    </Button>
+                    <Button
+                        primary
+                        leftIcon={<FontAwesomeIcon icon={faSignIn} />}
+                        rightIcon={<FontAwesomeIcon icon={faSignIn} />}
+                    >
+                        Log in
+                    </Button>
+                </div>
             </div>
         </div>
     )

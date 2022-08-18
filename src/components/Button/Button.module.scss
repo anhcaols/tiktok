@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: center;
     min-width: 100px;
-    padding: 8.75px 16px;
+    padding: 7.75px 16px;
     border-radius: 4px;
     font-size: 1.6rem;
     font-weight: 700;
@@ -12,7 +12,7 @@
     border: 1px solid transparent;
     user-select: none;
     + .wrapper{
-        margin-left: 8px;
+        margin-left: 16px;
     }
     &.disabled {
         pointer-events: none;
@@ -22,6 +22,11 @@
 }
 .icon + .title, .title + .icon {
     margin-left: 8px;
+}
+.icon {
+    display: inline-block;
+    width: 24px;
+    text-align: center;
 }
 .rounded {
     border: 1px solid rgba(22, 24, 35, 0.12);
@@ -71,4 +76,14 @@
 .large {
     min-width: 168px;
     padding: 13.75px 16px;
+}
+
+.upload {
+    background-color: #fff;
+    border: 1px solid rgba(22, 24, 35, 0.12);
+    border-radius: 2px;
+    width: 113px;
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03);
+    }
 }

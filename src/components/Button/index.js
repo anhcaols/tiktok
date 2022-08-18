@@ -18,6 +18,7 @@ function Button({
     rounded = false,
     small = false,
     large = false,
+    upload = false,
     children,
     onClick,
     ...passProp
@@ -47,6 +48,7 @@ function Button({
         outline,
         disabled,
         rounded,
+        upload,
         text,
         small,
         large,
@@ -54,7 +56,9 @@ function Button({
     })
     return (
         <Comp className={classes} {...props}>
+            {leftIcon && <span className={cx("icon")}>{leftIcon}</span>}
             <span className={cx("title")}>{children}</span>
+            
         </Comp>
     )
 }

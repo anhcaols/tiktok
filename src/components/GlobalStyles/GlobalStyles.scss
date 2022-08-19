@@ -8,6 +8,7 @@
     --default-container: 1150px;
     --black: #000;
     --white: #fff;
+    --text: #161823;
 }
 
 * {
@@ -25,7 +26,6 @@ body {
     text-rendering: optimizeSpeed;
     font-size: 1.6rem;
     line-height: 1.5;
-
 }
 
 button,
@@ -42,4 +42,23 @@ a[href] {
 
 ul {
     list-style: none;
+}
+
+// Custom tippy
+.tippy-box {
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.6rem;
+    line-height: 22px;
+    background-color: rgba(84, 84, 84, 0.92);
+    color: rgb(255, 255, 255);
+}
+.tippy-content {
+    padding: 8px;
+}
+.tippy-arrow {
+    color: rgba(84, 84, 84, 0.92);
+}
+.tippy-box[data-placement^='bottom'] > .tippy-arrow {
+    top: -1px;
 }

@@ -6,7 +6,7 @@ import { AccountItem } from '~/components/AccountItem'
 import styles from './Search.module.scss'
 import { SearchIcon, ClearSearch, LoadingSearch } from '~/components/Icons/icon'
 import { useDebounce } from '~/hooks'
-import * as searchService from '~/ApiService/searchService'
+import * as searchService from '~/apiService/searchService'
 const cx = classNames.bind(styles)
 function Search() {
     const [searchResult, setSearchResult] = useState([])

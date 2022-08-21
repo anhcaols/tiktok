@@ -1,7 +1,9 @@
+import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
+import classNames from 'classnames/bind'
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import classNames from 'classnames/bind'
+
 import styles from './AccountItem.module.scss'
 import Image from '../Image/Image'
 
@@ -13,7 +15,7 @@ function AccountItem({ data }) {
             <div className={cx('info')}>
                 <h4 className={cx('name')}>
                     <span>{data.nickname}</span>
-                    { data.tick && <FontAwesomeIcon className={cx('icon')} icon={faCheckCircle} />}
+                    {data.tick && <FontAwesomeIcon className={cx('icon')} icon={faCheckCircle} />}
                 </h4>
                 <span className={cx('user-name')}>{data.full_name}</span>
             </div>
@@ -21,4 +23,7 @@ function AccountItem({ data }) {
     )
 }
 
+AccountItem.propTypes = {
+    data: PropTypes.object.isRequired
+}
 export default AccountItem

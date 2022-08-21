@@ -18,7 +18,7 @@ import {
 import Menu from '~/components/Popper/Menu'
 import styles from './Header.module.scss'
 import images from '~/assets/images'
-import routesConfig from '~/config/routes'
+import config from '~/config'
 import Button from '~/components/Button'
 import { InboxIcon, MessageIcon } from '~/components/Icons/icon'
 import Image from '~/components/Image/Image'
@@ -92,7 +92,7 @@ function Header() {
     return (
         <div className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <Link to={routesConfig.home} className={cx("logo-link")}>
+                <Link to={config.routes.home} className={cx('logo-link')}>
                     <img className={cx('logo')} src={images.logo} alt="logo" />
                 </Link>
 

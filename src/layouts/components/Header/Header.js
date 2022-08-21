@@ -42,6 +42,11 @@ const MENU_ITEMS = [
                     code: 'vn',
                     title: 'Tiếng Việt',
                 },
+                {
+                    type: 'Language',
+                    code: 'vn',
+                    title: 'Tiếng Việt',
+                },
             ],
         },
     },

@@ -13,6 +13,11 @@ const defaultFuc = () => {}
 function Menu({ children, items = [], onChange = defaultFuc, hideOnClick = false }) {
     const [history, setHistory] = useState([{ data: items }])
     const current = history[history.length - 1]
+
+    const handleBack = () => {
+        setHistory((prev) => prev.slice(0, prev.length - 1))
+    }
+
     const renderItems = () => {
         return current.data.map((item, index) => {
             const isCurrent = !!item.children
@@ -31,29 +36,25 @@ function Menu({ children, items = [], onChange = defaultFuc, hideOnClick = false
             )
         })
     }
+    const renderResult = (attrs) => (
+        <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
+            <WrapperPopper className={cx('menu-popper')}>
+                {history.length > 1 && <Header onBack={handleBack} title={current.title} />}
+                <div className={cx('menu-body')}>{renderItems()}</div>
+            </WrapperPopper>
+        </div>
+    )
+
+    const handleResetMenu = () => setHistory((prev) => prev.slice(0, 1))
     return (
         <Tippy
             interactive
-            hideOnClick={hideOnClick}
+            render={renderResult}
             offset={[12, 8]}
             delay={[0, 500]}
             placement="bottom-end"
-            render={(attrs) => (
-                <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
-                    <WrapperPopper className={cx('menu-popper')}>
-                        {history.length > 1 && (
-                            <Header
-                                onBack={() => {
-                                    setHistory((prev) => prev.slice(0, prev.length - 1))
-                                }}
-                                title={current.title}
-                            />
-                        )}
-                        <div className={cx('menu-body')}>{renderItems()}</div>
-                    </WrapperPopper>
-                </div>
-            )}
-            onHidden={() => setHistory((prev) => prev.slice(0, 1))}
+            hideOnClick={hideOnClick}
+            onHidden={handleResetMenu}
         >
             {children}
         </Tippy>

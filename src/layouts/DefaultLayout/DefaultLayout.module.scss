@@ -7,9 +7,9 @@
 
 .container {
     display: flex;
+    max-width: 100%;
     width: var(--default-container);
     justify-content: center;
-    min-height: 1000px;
 }
 .content {
     flex: 1;

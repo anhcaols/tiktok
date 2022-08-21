@@ -4,20 +4,20 @@ import HeadlessTippy from '@tippyjs/react/headless'
 import { Wrapper as WrapperPopper } from '~/components/Popper'
 import { AccountItem } from '~/components/AccountItem'
 import styles from './Search.module.scss'
-import { SearchIcon, ClearSearch, LoadingSearch } from '~/components/Icons/icon'
+import { SearchIcon, ClearSearch, LoadingSearch } from '~/components/Icons'
 import { useDebounce } from '~/hooks'
 import * as searchService from '~/services/searchService'
 const cx = classNames.bind(styles)
 function Search() {
     const [searchResult, setSearchResult] = useState([])
     const [searchValue, setSearchValue] = useState('')
-    const [showResult, setShowResult] = useState(true)
+    const [showResult, setShowResult] = useState(false)
     const [loading, setLoading] = useState(false)
     const inputRef = useRef()
 
-    const debounced = useDebounce(searchValue, 500)
+    const debouncedValue = useDebounce(searchValue, 500)
     useEffect(() => {
-        if (!debounced.trim()) {
+        if (!debouncedValue.trim()) {
             setSearchResult([])
             return
         }
@@ -25,15 +25,16 @@ function Search() {
         const fetchApi = async () => {
             try {
                 setLoading(true)
-                const result = await searchService.search(debounced, 'less')
+                const result = await searchService.search(debouncedValue, 'less')
                 setSearchResult(result)
                 setLoading(false)
+                setShowResult(true)
             } catch (error) {
                 console.log(error)
             }
         }
         fetchApi()
-    }, [debounced])
+    }, [debouncedValue])
     // Event
     const handleClear = () => {
         setSearchValue('')
@@ -57,7 +58,7 @@ function Search() {
                         <WrapperPopper>
                             <h4 className={cx('search-title')}>Accounts</h4>
                             {searchResult.map((result) => (
-                                <AccountItem key={result.id} data={result} />
+                                <AccountItem key={result.id} data={result} onClick={() => setShowResult(false)} />
                             ))}
                         </WrapperPopper>
                     </div>

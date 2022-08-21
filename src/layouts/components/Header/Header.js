@@ -20,7 +20,7 @@ import styles from './Header.module.scss'
 import images from '~/assets/images'
 import config from '~/config'
 import Button from '~/components/Button'
-import { InboxIcon, MessageIcon } from '~/components/Icons/icon'
+import { InboxIcon, MessageIcon } from '~/components/Icons/Icon'
 import Image from '~/components/Image/Image'
 import Search from '../Search/Search'
 const cx = classNames.bind(styles)

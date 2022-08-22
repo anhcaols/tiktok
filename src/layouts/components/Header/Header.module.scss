@@ -48,19 +48,35 @@
 
 // Current User
 .action-btn {
-    background-color: transparent;
-    font-size: 2rem;
-    margin-left: 19px;
-    cursor: pointer;
-    height: 32px;
+    position: relative;
     display: flex;
     align-items: center;
+    height: 32px;
+    margin-left: 19px;
+    font-size: 2rem;
+    background-color: transparent;
+    cursor: pointer;
+
+    span {
+        position: absolute;
+        top: -4px;
+        right: -4px;
+        padding: 0px 6px;
+        height: 2rem;
+        line-height: 2rem;
+        border-radius: 10px;
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: var(--white);
+        font-family: var(--font-family);
+        background-color: var(--primary);
+    }
 }
 .avatar {
     width: 32px;
     height: 32px;
+    margin-left: 24px;
     border-radius: 50%;
     cursor: pointer;
-    margin-left: 24px;
     object-fit: cover;
 }
